@@ -1,0 +1,27 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - vendor/**/*
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+
+ModuleLength:
+  Exclude:
+    - spec/**/*'
+
+BlockLength:
+  Exclude:
+    - spec/**/*
+
+MethodLength:
+  Exclude:
+    - spec/**/*

@@ -1,0 +1,16 @@
+<h1>What's the state of the world?</h1>
+
+<h2><%= @state_of_the_world %></h2>
+
+<% unless @games.not_completed.any? %>
+  <%= link_to "Create new game", games_path, method: :post %>
+<% end %>
+
+<hr />
+
+<% @losers.each do |loser| %>
+  <%= link_to loser[:game].created_at.to_formatted_s(:long), game_rounds_path(loser[:game]) %> |
+  <%= loser[:game].completed_at&.to_formatted_s(:long) || "Not completed" %> |
+  <%= loser[:loser] %> <%= loser[:difference] %>
+  <br />
+<% end %>

@@ -1,0 +1,29 @@
+<h1>New round</h1>
+
+<%= form_for @round, url: game_rounds_path(@game) do |f| %>
+  <%= f.label :name, "Round name: " %>
+  <%= f.text_field :name %>
+
+  <hr />
+
+  <div>
+    <%= f.fields_for "kristina_score" do |kristina_score_fields| %>
+      <%= kristina_score_fields.hidden_field :user_id, value: @kristina_user.id %>
+      <%= kristina_score_fields.label :value, "Score for Kristina: " %>
+      <%= kristina_score_fields.number_field :value %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.fields_for "chris_score" do |chris_score_fields| %>
+      <%= chris_score_fields.hidden_field :user_id, value: @chris_user.id %>
+      <%= chris_score_fields.label :value, "Score for Chris: " %>
+      <%= chris_score_fields.number_field :value %>
+    <% end %>
+  </div>
+
+  <br />
+
+  <%= f.submit "Save" %>
+  <%= link_to "Cancel", game_rounds_path(@game) %>
+<% end %>

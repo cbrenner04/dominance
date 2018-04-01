@@ -1,0 +1,7 @@
+<div>
+  <%= round.name %> -
+
+  <% round.scores.each do |score| %>
+    <%= score.user.first_name %>: <%= score.value %>
+  <% end %>
+</div>
