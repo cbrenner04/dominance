@@ -14,3 +14,7 @@
 !/tmp/.keep
 
 .byebug_history
+
+# Ignore test helpers
+coverage
+spec/examples.txt
