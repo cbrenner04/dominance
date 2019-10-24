@@ -18,8 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
-  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
+  gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
 end
 
 group :development do
@@ -27,7 +27,7 @@ group :development do
   gem 'rubocop', '~> 0.52.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.5.1'
+  gem 'web-console', '>= 3.7.0'
 end
 
 group :test do
