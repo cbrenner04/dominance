@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :score do
     user
     round
-    value 1
+    value { 1 }
   end
 end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Games' do
+RSpec.describe 'Games', type: :feature do
   let(:chris) { create :user, first_name: 'Chris' }
   let(:kristina) { create :user, first_name: 'Kristina' }
   let(:game_one) do
@@ -11,39 +11,33 @@ RSpec.feature 'Games' do
   let(:game_two) { create :game }
   let(:round_one) { create :round, game: game_one }
   let(:round_two) { create :round, game: game_two }
-  let!(:chris_score_one) do
+
+  before do
     create :score, user: chris, round: round_one, value: 1
-  end
-  let!(:kristina_score_one) do
     create :score, user: kristina, round: round_one, value: 0
-  end
-  let!(:chris_score_two) do
     create :score, user: chris, round: round_two, value: 0
-  end
-  let!(:kristina_score_two) do
     create :score, user: kristina, round: round_two, value: 1
+    log_in_user chris
   end
 
-  before { log_in_user chris }
-
+  # rubocop:disable RSpec/MultipleExpectations
   it 'lists games' do
-    expect(page)
-      .to have_text "#{game_one.created_at.to_formatted_s(:long)} | " \
-                    'Not completed | Chris +1'
-    expect(page)
-      .to have_text "#{game_two.created_at.to_formatted_s(:long)} | " \
-                    "#{game_two.completed_at.to_formatted_s(:long)} | " \
-                    'Kristina +1'
+    expect(page).to have_text "#{game_one.created_at.to_formatted_s(:long)} " \
+      '| Not completed | Chris +1'
+    expect(page).to have_text "#{game_two.created_at.to_formatted_s(:long)} " \
+      "| #{game_two.completed_at.to_formatted_s(:long)} | Kristina +1"
   end
+  # rubocop:enable RSpec/MultipleExpectations
 
   it 'can access a game' do
     click_on game_one.created_at.to_formatted_s(:long)
-    expect(current_path).to eq game_rounds_path(game_one)
+    expect(page).to have_current_path game_rounds_path(game_one),
+                                      ignore_query: true
   end
 
   context 'when all games are not complete' do
     it 'cannot create game' do
-      expect(page).to_not have_text 'Create new game'
+      expect(page).not_to have_text 'Create new game'
     end
   end
 
@@ -61,12 +55,13 @@ RSpec.feature 'Games' do
 
   describe 'when the lifetime score is tied' do
     it 'does not display heading' do
-      expect(page).to_not have_text 'is losing by'
+      expect(page).not_to have_text 'is losing by'
     end
   end
 
   describe 'when Chris is the worst' do
     before do
+      chris_score_one = Score.find_by(user: chris, round: round_one)
       chris_score_one.update!(value: 3)
       page.refresh
     end
@@ -78,6 +73,7 @@ RSpec.feature 'Games' do
 
   describe 'when Kristina is the worst' do
     before do
+      kristina_score_two = Score.find_by(user: kristina, round: round_two)
       kristina_score_two.update!(value: 3)
       page.refresh
     end

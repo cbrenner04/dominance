@@ -11,13 +11,13 @@ RSpec.describe Round, type: :model do
     it 'is invalid without game' do
       round.game = nil
 
-      expect(round).to_not be_valid
+      expect(round).not_to be_valid
     end
 
     it 'is invalid without name' do
       round.name = nil
 
-      expect(round).to_not be_valid
+      expect(round).not_to be_valid
     end
   end
 end

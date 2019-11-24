@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   Exclude:
     - bin/**/*
@@ -14,14 +16,14 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
 
-ModuleLength:
+Metrics/ModuleLength:
   Exclude:
     - spec/**/*'
 
-BlockLength:
+Metrics/BlockLength:
   Exclude:
     - spec/**/*
 
-MethodLength:
+Metrics/MethodLength:
   Exclude:
     - spec/**/*

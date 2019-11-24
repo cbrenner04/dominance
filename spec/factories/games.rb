@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :game do
-    completed_at Time.zone.now
+    completed_at { Time.zone.now }
   end
 end
