@@ -11,19 +11,19 @@ RSpec.describe Score, type: :model do
     it 'is invalid without user' do
       score.user = nil
 
-      expect(score).to_not be_valid
+      expect(score).not_to be_valid
     end
 
     it 'is invalid without round' do
       score.round = nil
 
-      expect(score).to_not be_valid
+      expect(score).not_to be_valid
     end
 
     it 'is invalid without value' do
       score.value = nil
 
-      expect(score).to_not be_valid
+      expect(score).not_to be_valid
     end
   end
 end
