@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :round do
     game
-    name 'MyString'
+    name { 'MyString' }
   end
 end

@@ -8,7 +8,7 @@ SimpleCov.minimum_coverage_by_file 80
 require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 abort('The Rails environment is production!') if Rails.env.production?
 
