@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise', '~> 4.7', '>= 4.7.2'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'jbuilder', '~> 2.7', '>= 2.7.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.12', '>= 3.12.6'
