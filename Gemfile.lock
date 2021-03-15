@@ -251,7 +251,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.18, >= 2.18.0)
   database_cleaner (~> 1.6, >= 1.6.2)
-  devise (~> 4.7, >= 4.7.2)
+  devise (~> 4.7, >= 4.7.3)
   factory_bot_rails (~> 4.11, >= 4.11.1)
   jbuilder (~> 2.7, >= 2.7.0)
   launchy (~> 2.4, >= 2.4.3)
@@ -272,7 +272,7 @@ DEPENDENCIES
   web-console (>= 3.7.0)
 
 RUBY VERSION
-   ruby 2.5.0p0
+   ruby 2.7.2p137
 
 BUNDLED WITH
-   1.17.3
+   2.2.11
