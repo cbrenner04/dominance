@@ -10,7 +10,7 @@ end
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'jbuilder', '~> 2.7', '>= 2.7.0'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.12', '>= 3.12.6'
+gem 'puma', '~> 4.3'
 gem 'rails', '6.0.3.5'
 gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 gem 'turbolinks', '~> 5'
